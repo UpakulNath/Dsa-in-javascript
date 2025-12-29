@@ -1,6 +1,6 @@
 
-
-let arr = [1, 2, 4, 7, 7, 5];
+/*
+let arr = [1];
 let largest = -Infinity;
 let secondLargest = -Infinity;
 let smallest = Infinity;
@@ -16,5 +16,44 @@ for (let i = 0; i < arr.length; i++) {
     secondLargest = arr[i];
   }
 }
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] < smallest) {
+      secondSmallest = smallest;
+    smallest = arr[i];
+  }
 
-console.log(largest, secondLargest);
+  if (arr[i] > smallest && arr[i] < secondSmallest) {
+    secondSmallest = arr[i];
+  }
+}
+
+console.log(largest, secondLargest, smallest, secondSmallest);
+*/
+
+/*
+let arr = [5,4,6,7,8]
+flag = true
+for (let i = 0; i < arr.length - 1; i++){
+    if (arr[i] > arr[i + 1]) {
+        flag = false
+        console.log("false");
+        break
+    }
+}
+if(flag)console.log(flag);
+*/
+
+/*
+let arr = [1, 1, 2, 2, 2, 3, 3];
+
+let i = 0;
+
+for (let j = 1; j < arr.length; j++) {
+  if (arr[j] !== arr[i]) {
+    i++;
+    arr[i] = arr[j];
+  }
+}
+
+console.log(arr);
+*/
