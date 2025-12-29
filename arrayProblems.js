@@ -57,3 +57,29 @@ for (let j = 1; j < arr.length; j++) {
 
 console.log(arr);
 */
+
+//rotate the array towards the left by one
+
+/*
+let arr = [-1, 0, 3, 6];
+let temp = arr[0]
+
+for (let i = 1; i < arr.length; i++){
+  arr[i - 1] = arr[i]
+}
+arr[arr.length - 1] = temp
+console.log(arr);
+*/
+
+let arr = [1, 2, 3, 4, 5, 6, 7]
+let k = 2
+for (let i = 0; i < k; i++){
+  let temp = arr[arr.length - 1]
+  for (let j = arr.length - 2; j >= 0; j--){
+    arr[j + 1] = arr[j]
+  }
+  arr[0] = temp
+}
+console.log(arr);
+
+
