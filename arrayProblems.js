@@ -157,6 +157,7 @@ console.log(arr);
 }
 */
 
+/*
 let arr = [1, 4, 5]
 let num = 23
 let found = false
@@ -169,5 +170,97 @@ for (let i = 0; i < arr.length; i++){
   }
 }
 if(found == false)console.log("-1");
+*/
+
+/*
+let arr1 = [6, 7, 8, 9, 10];
+let arr2 = [2, 3, 4, 4, 5, 11, 12];
+
+let newArr = [];
+let i = 0,
+  j = 0;
+
+while (i < arr1.length && j < arr2.length) {
+  // skip duplicates in both arrays
+  while (i > 0 && arr1[i] === arr1[i - 1]) i++;
+  while (j > 0 && arr2[j] === arr2[j - 1]) j++;
+
+  if (i >= arr1.length || j >= arr2.length) break;
+
+  if (arr1[i] < arr2[j]) {
+    newArr.push(arr1[i++]);
+  } else if (arr1[i] > arr2[j]) {
+    newArr.push(arr2[j++]);
+  } else {
+    newArr.push(arr1[i]);
+    i++;
+    j++;
+  }
+}
+
+while (i < arr1.length) {
+  if (i === 0 || arr1[i] !== arr1[i - 1]) newArr.push(arr1[i]);
+  i++;
+}
+
+while (j < arr2.length) {
+  if (j === 0 || arr2[j] !== arr2[j - 1]) newArr.push(arr2[j]);
+  j++;
+}
+
+console.log(newArr);
+*/
+
+/*
+let n = 5
+let arr = [1, 2, 4, 5]
+let sum = (n * (n + 1)) / 2
+let arrSum = 0
+for (let ele of arr) arrSum += ele
+
+if (sum === arrSum) {
+  console.log("all present");
+  
+} else {
+  console.log(`${sum - arrSum} is absent` );
+  
+}
+*/
+
+/*
+let arr = [1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+let [maxCount, currentCount] = [0, 0]
+
+for (let i = 0; i < arr.length; i++){
+  if (arr[i] === 0) {
+    if(currentCount > maxCount)  maxCount = currentCount;
+    currentCount = 0
+  } else if (arr[i] === 1) {
+    currentCount++
+  }
+  
+}
+if (currentCount > maxCount) maxCount = currentCount;
+console.log(maxCount);
+*/
+
+/*
+let arr = [4, 1, 2, 1, 4];
+
+for (let i = 0; i < arr.length; i++) {
+  let count = 0;
+
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[i] === arr[j]) {
+      count++;
+    }
+  }
+
+  if (count === 1) {
+    console.log(arr[i]); // unique element
+  }
+}
+*/
+
 
 
