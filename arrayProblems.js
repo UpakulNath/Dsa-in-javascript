@@ -262,5 +262,40 @@ for (let i = 0; i < arr.length; i++) {
 }
 */
 
+/*
+let arr = [4, 1, 2, 1, 4]
+
+let result = 0
+
+for (let ele of arr) {
+  result ^= ele
+}
+
+console.log(result);
+*/
+
+
+let arr = [10, 0, 2, 7, 1, 9]
+let [sum, k, maxLen, left, right] = [10, 15, 0, 0, 0]
+
+while (right < arr.length) {
+  
+  while (left <= right && sum > k) {
+    sum -= arr[left]
+    left++
+  }
+
+  if (sum === k) {
+    maxLen = Math.max(maxLen, right - left + 1)
+  }
+
+  right++
+
+  if (right < arr.length) sum += arr[right]
+  
+}
+
+console.log(maxLen);
+
 
 
