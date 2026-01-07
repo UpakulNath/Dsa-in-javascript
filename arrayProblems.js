@@ -275,6 +275,7 @@ console.log(result);
 */
 
 
+/*
 let arr = [10, 0, 2, 7, 1, 9]
 let [sum, k, maxLen, left, right] = [10, 15, 0, 0, 0]
 
@@ -296,6 +297,161 @@ while (right < arr.length) {
 }
 
 console.log(maxLen);
+*/
 
+/*
+let arr = [1, 2, 3, 1, 1, 1, 1, 4, 2, 3];
+let k = 3;
 
+let preSum = 0;
+let maxLen = 0;
+let map = new Map();
 
+for (let i = 0; i < arr.length; i++) {
+  preSum += arr[i];
+
+  // Case 1: subarray from 0 to i
+  if (preSum === k) {
+    maxLen = i + 1;
+  }
+
+  // Case 2: subarray ending at i
+  if (map.has(preSum - k)) {
+    maxLen = Math.max(maxLen, i - map.get(preSum - k));
+  }
+
+  // Store first occurrence only
+  if (!map.has(preSum)) {
+    map.set(preSum, i);
+  }
+}
+
+console.log(maxLen);
+*/
+
+/*
+let arr = [2, 6, 5, 8, 11]
+let target = 100
+
+let map = new Map()
+
+for (let i = 0; i < arr.length; i++){
+  map.set(arr[i], i)
+}
+let flag = false
+
+for (let i = 0; i < arr.length; i++){
+  if (map.has(target - arr[i])) {
+    console.log("YES");
+    console.log(i, map.get(target - arr[i]));
+    flag = true
+    break; 
+  }
+}
+
+if(!flag) console.log("No\n[-1, -1]");
+*/
+
+/*
+let arr = [1, 0, 2, 1, 0];
+let [zeroCount, oneCount, twoCount] = [0, 0, 0];
+
+// count
+for (let ele of arr) {
+  if (ele === 0) zeroCount++;
+  else if (ele === 1) oneCount++;
+  else twoCount++;
+}
+
+let i = 0;
+
+// place 0s
+while (zeroCount > 0) {
+  arr[i++] = 0;
+  zeroCount--;
+}
+
+// place 1s
+while (oneCount > 0) {
+  arr[i++] = 1;
+  oneCount--;
+}
+
+// place 2s
+while (twoCount > 0) {
+  arr[i++] = 2;
+  twoCount--;
+}
+
+console.log(arr);
+*/
+
+/*
+let arr = [7, 0, 0, 0,0,0,0,0,0,1, 7, 7, 2, 7, 7]
+
+let mp = new Map()
+
+for (let ele of arr) {
+  mp.set(ele, (mp.get(ele) || 0) + 1)
+}
+
+for (let [key, value] of mp) {
+  
+if(value > Math.floor(arr.length / 2))console.log(key);
+
+}
+*/
+
+/*
+let arr = [-2, -3, -5, -2, -7, -4]
+let sum = 0
+let maxSum = 0
+
+for (let i = 0; i < arr.length; i++){
+  sum+=arr[i]
+  if (sum < 0) sum = 0
+
+  if(sum > maxSum) maxSum = sum
+}
+if(maxSum === 0) maxSum = arr[0]
+
+console.log(maxSum);
+*/
+
+/*
+let arr = [7, 6, 4, 3, 1];
+
+let buyingPrice, sellingPrice;
+let profit = 0;
+
+for (let i = 0; i < arr.length; i++){
+  buyingPrice = arr[i]
+  for (let j = i + 1; j < arr.length; j++){
+    if (arr[j] > buyingPrice) {
+      sellingPrice = arr[j] - buyingPrice
+    }
+
+    if (sellingPrice > profit) {
+      profit = sellingPrice
+    }
+  }
+}
+console.log(profit);
+*/
+
+/*
+let arr = [7, 1, 5, 3, 6, 4]
+let minPrice = arr[0]
+let maxProfit = 0
+
+for (let i = 0; i < arr.length; i++){
+  if (arr[i] < minPrice) {
+    minPrice = arr[i]
+  }
+  if (arr[i] - minPrice > maxProfit) {
+    maxProfit = arr[i] - minPrice
+  }
+}
+
+console.log(maxProfit);
+*/
