@@ -455,3 +455,23 @@ for (let i = 0; i < arr.length; i++){
 
 console.log(maxProfit);
 */
+
+/*
+let arr = [1, 2, -4, -5, 3, -2]
+let resultArray = []
+let posIndex = 0
+let negIndex = 1
+
+for (let i = 0; i < arr.length; i++){
+  if ((arr[i] > 0)) {
+    resultArray[posIndex] = arr[i]
+    posIndex += 2
+  } else if ((arr[i] < 0)) {
+    resultArray[negIndex] = arr[i]
+    negIndex += 2
+  }
+}
+
+console.log(resultArray);
+*/
+
