@@ -475,3 +475,130 @@ for (let i = 0; i < arr.length; i++){
 console.log(resultArray);
 */
 
+/*
+let arr = [1, 3, 2];
+let n = arr.length
+let breakpointIdx = -1
+
+function reverseArray(start, end) {
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+for (let i = n - 2; i >= 0; i--){
+  if (arr[i] < arr[i + 1]) {
+    breakpointIdx = i
+    break
+  }
+}
+
+if (breakpointIdx === -1) {
+  arr.reverse()
+}
+
+for (let i = n - 1; i >= breakpointIdx; i--){
+  if (arr[i] > arr[breakpointIdx]) {
+    let temp = arr[i]
+    arr[i] = arr[breakpointIdx]
+    arr[breakpointIdx] = temp
+    break;
+  }
+}
+
+reverseArray(breakpointIdx + 1, n - 1)
+console.log(arr);
+*/
+
+/*
+let arr = [4, 7, 1, 0]
+let leaderArray = []
+let n = arr.length
+
+for (let i = 0; i < n ; i++){
+let isLeader = true
+  
+  for (let j = i + 1; j < n ; j++){
+    if (arr[i] < arr[j]) {
+      isLeader = false
+      break
+    }
+  }
+
+  if (isLeader) {
+    leaderArray.push(arr[i])
+  }
+
+}
+
+console.log(leaderArray);
+*/
+
+/*
+let arr = [4, 7, 1, 0]
+let n = arr.length
+let max = arr[n - 1]
+let leaderArray = [arr[n - 1]];
+
+for (let i = n - 2; i >= 0; i--){
+  if (arr[i] > max) {
+    max = arr[i]
+    leaderArray.push(max)
+  }
+}
+leaderArray.reverse()
+
+console.log(leaderArray);
+*/
+
+/*
+let arr = [100, 4, 200, 1, 3, 2]
+let [count, maxCount] = [0,0]
+arr = arr.sort((a, b) => a - b)
+
+for (let i = 0; i < arr.length - 1; i++){
+  if (arr[i] + 1 === arr[i + 1]) {
+    count++
+  } else {
+    if (count > maxCount) {
+      maxCount = count
+      count = 0
+    }
+  }
+  maxCount = Math.max(maxCount, count);
+}
+
+console.log(maxCount + 1);
+*/
+
+let arr = [100, 4, 200, 1, 3, 2]
+let map = new Map()
+let count = 0
+let maxCount = 0
+
+for (let i = 0; i < arr.length; i++){
+  map.set(arr[i], i)
+}
+
+for (let i = 0; i < arr.length; i++){
+  let currEle = arr[i]
+  if (!map.has(currEle - 1)) {
+    count = 1
+    let nextEle = currEle + 1
+    while (map.has(nextEle)) {
+      count++
+      nextEle++
+    }
+  }
+
+  if(count > maxCount) maxCount = count
+}
+
+console.log(maxCount);
+
+
+
