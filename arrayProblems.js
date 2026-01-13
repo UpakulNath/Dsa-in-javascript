@@ -575,6 +575,7 @@ for (let i = 0; i < arr.length - 1; i++){
 console.log(maxCount + 1);
 */
 
+/*
 let arr = [100, 4, 200, 1, 3, 2]
 let map = new Map()
 let count = 0
@@ -599,6 +600,136 @@ for (let i = 0; i < arr.length; i++){
 }
 
 console.log(maxCount);
+*/
 
+/*
+let arr = [
+  [1, 1, 1],
+  [1, 0, 1],
+  [1, 1, 1]
+]
+let row,col
 
+for (let i = 0; i < arr.length; i++){
+  for (let j = 0; j < arr.length; j++){
+    if (arr[i][j] === 0) {
+      row = i
+      col = j
+      
+    }
+  }
+}
+
+for (let i = 0; i < arr.length; i++){
+  for (let j = 0; j < arr.length; j++){
+    if (i === row || j === col) {
+      arr[i][j] = 0
+    }
+  }
+}
+
+console.log(arr);
+*/
+
+/*
+let matrix = [
+  [0, 1, 2, 0],
+  [3, 4, 5, 2],
+  [1, 3, 1, 5]
+]
+
+let row = new Array(3).fill(false)
+let col = new Array(4).fill(false)
+
+for (let i = 0; i < matrix.length; i++){
+  for (let j = 0; j < 4; j++){
+    if (matrix[i][j] === 0) {
+      row[i] = true
+      col[j] = true
+    }
+  }
+}
+
+for (let i = 0; i < matrix.length; i++){
+  for (let j = 0; j < 4; j++){
+    if (row[i] || col[j]) {
+      matrix[i][j] = 0
+    }
+  }
+}
+
+console.log(matrix);
+*/
+
+class Solution {
+  // Function to set entire row and column to 0 if an element in the matrix
+  setZeroes(matrix) {
+    // Get dimensions of matrix
+    let m = matrix.length;
+    let n = matrix[0].length;
+
+    // Flag to track if first row should be zeroed
+    let firstRowZero = false;
+    // Flag to track if first column should be zeroed
+    let firstColZero = false;
+
+    // Check if first row has any zero
+    for (let j = 0; j < n; j++) {
+      if (matrix[0][j] === 0) {
+        firstRowZero = true;
+        break;
+      }
+    }
+
+    // Check if first column has any zero
+    for (let i = 0; i < m; i++) {
+      if (matrix[i][0] === 0) {
+        firstColZero = true;
+        break;
+      }
+    }
+
+    // Use first row/column as markers
+    for (let i = 1; i < m; i++) {
+      for (let j = 1; j < n; j++) {
+        if (matrix[i][j] === 0) {
+          matrix[i][0] = 0;
+          matrix[0][j] = 0;
+        }
+      }
+    }
+
+    // Set cells to zero based on markers
+    for (let i = 1; i < m; i++) {
+      for (let j = 1; j < n; j++) {
+        if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+          matrix[i][j] = 0;
+        }
+      }
+    }
+
+    // Zero the first row if needed
+    if (firstRowZero) {
+      for (let j = 0; j < n; j++) {
+        matrix[0][j] = 0;
+      }
+    }
+
+    // Zero the first column if needed
+    if (firstColZero) {
+      for (let i = 0; i < m; i++) {
+        matrix[i][0] = 0;
+      }
+    }
+  }
+}
+
+// Driver code
+let matrix = [
+  [0, 1, 2, 0],
+  [3, 4, 5, 2],
+  [1, 3, 1, 5],
+];
+new Solution().setZeroes(matrix);
+console.log(matrix);
 
