@@ -661,6 +661,7 @@ for (let i = 0; i < matrix.length; i++){
 console.log(matrix);
 */
 
+/*
 class Solution {
   // Function to set entire row and column to 0 if an element in the matrix
   setZeroes(matrix) {
@@ -732,4 +733,55 @@ let matrix = [
 ];
 new Solution().setZeroes(matrix);
 console.log(matrix);
+*/
+
+/*
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+let rows = matrix.length;
+
+for (let i = 0; i < rows; i++) {
+  for (let j = i + 1; j < rows; j++) {
+    let temp = matrix[i][j];
+    matrix[i][j] = matrix[j][i];
+    matrix[j][i] = temp;
+  }
+}
+
+for (let i = 0; i < rows; i++){
+  matrix[i].reverse()
+}
+console.log(matrix);
+*/
+
+/*
+let arr = [3, 1, 2, 4, 2, 2]
+let currSum = 0
+let cnt = 0
+let k = 4;
+
+for (let i = 0; i < arr.length; i++){
+  currSum += arr[i]
+  if (currSum === k) {
+    cnt++
+    currSum = 0
+    
+  }
+}
+
+console.log(cnt);
+*/
+
+/*
+let arr = [-2, -2, -2, -1, -1, -1, 0,0,0,2,2,2,2]
+
+let i, j, k;
+*/
+
+
+
 
