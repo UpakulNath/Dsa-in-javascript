@@ -783,5 +783,19 @@ let i, j, k;
 */
 
 
+let str = "  Hello world"
+str = str.split(" ")
+let newStr = ""
+
+for(let i = str.length - 1; i >= 0; i--){
+  if(str[str.length - 1] == " " || str[0] == " "){
+    continue
+  }
+  newStr += str[i] + " "
+
+}
+
+console.log(newStr);
+
 
 
