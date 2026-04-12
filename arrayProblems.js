@@ -887,6 +887,7 @@ console.log( s);
 console.log(typeof(s));
 */
 
+/*
 let arr = [3, 5, 8, 15, 19]
 
 function lowerBound(arr, target){
@@ -913,8 +914,35 @@ function lowerBound(arr, target){
 
 let answer = lowerBound(arr, 9)
 console.log(answer);
+*/
 
+/*
+let arr = [3 ,5, 8, 9, 15, 19]
 
+function upperBound(arr, target){
+  let n = arr.length 
+  let start = 0
+  let end = n - 1
+
+  let ans = n 
+
+  while(start <= end){
+    let mid = Math.floor((start + end) / 2)
+
+    if(arr[mid] > target){
+      ans = mid
+      end = mid - 1
+    }else{
+      start = mid + 1
+    }
+  }
+
+  return ans
+}
+
+let answer = upperBound(arr, 9)
+console.log(answer);
+*/
 
 
 
