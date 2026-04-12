@@ -783,19 +783,138 @@ let i, j, k;
 */
 
 
-let str = "  Hello world"
-str = str.split(" ")
-let newStr = ""
+// let str = "  Hello world"
+// str = str.split(" ")
+// let newStr = ""
 
-for(let i = str.length - 1; i >= 0; i--){
-  if(str[str.length - 1] == " " || str[0] == " "){
-    continue
+// for(let i = str.length - 1; i >= 0; i--){
+//   if(str[str.length - 1] == " " || str[0] == " "){
+//     continue
+//   }
+//   newStr += str[i] + " "
+
+// }
+
+// console.log(newStr);
+
+
+/*
+let arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+let i = 0
+let j = 0
+let pastEle = arr[0]
+
+while(j < arr.length){
+  if(arr[j] == pastEle){
+    j++
+  }else{
+    pastEle = arr[j]
+    let temp
+    temp = arr[j]
+    arr[j] = arr[i]
+    arr[i] = temp
+    j++
+    i++
   }
-  newStr += str[i] + " "
 
+  if(arr[i + 1] == pastEle){
+    i++
+  }
 }
 
-console.log(newStr);
+console.log(arr);
+*/
+
+/*
+let nums = [1, 2, 3, 4, 5, 6, 7]
+let k = 3
+let temp
+
+for(let i = 0; i < k; i++){
+  temp = nums[nums.length - 1]
+  for(let j = nums.length - 1; j > 0; j--){
+    nums[j] = nums[j - 1]
+  }
+  nums[0] = temp
+}
+
+console.log(nums);
+*/
+
+/*
+let arr = [0, 1, 7, 8, 10, 5, 4, 1]
+
+let left = 0
+let right = arr.length - 1
+
+while(left < right){
+  let mid = Math.floor((left + right) / 2)
+
+  if(arr[mid] < arr[mid + 1]){
+    left = mid + 1   // peak is on right
+  } else {
+    right = mid      // peak is on left (or mid itself)
+  }
+}
+
+// console.log(left) // index of peak
+
+/*
+num = 123
+num = String(num).split("")
+console.log(num);
+
+
+let num = [1,2,3]
+let num1 = [4, 5, 6]
+console.log(num);
+console.log(num1);
+
+num = num1
+console.log(num);
+*/
+
+// let str = "hello world"
+// let newStr = str.split(" ")
+// console.log(newStr);
+
+/*
+let num1 = "2"
+let num2 = "3"
+let s = ""
+s += num1 * num2
+console.log( s);
+console.log(typeof(s));
+*/
+
+let arr = [3, 5, 8, 15, 19]
+
+function lowerBound(arr, target){
+  let n = arr.length
+  let start = 0
+  let end = n - 1
+
+  let ans = n
+
+  while(start <= end){
+    let mid = Math.floor((start + end) / 2)
+
+    if(arr[mid] >= target){
+      ans = mid
+      end = mid - 1
+    }else{
+      start = mid + 1
+    }
+  }
+
+
+  return ans
+}
+
+let answer = lowerBound(arr, 9)
+console.log(answer);
+
+
 
 
 
