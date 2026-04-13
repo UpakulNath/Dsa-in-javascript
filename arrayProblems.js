@@ -944,5 +944,166 @@ let answer = upperBound(arr, 9)
 console.log(answer);
 */
 
+/*
+let arr = [3, 4, 4, 7, 8, 10]
+
+function floorNum(arr, target){
+  let n = arr.length
+  let start = 0
+  let end = n - 1
+  let ans
+
+  while(start <= end){
+    let mid = Math.floor((start + end) / 2)
+
+    if(arr[mid] <= target){
+      ans = arr[mid]
+      start = mid + 1
+    }else{
+      end = mid - 1
+    }
+  }
+
+  return ans
+}
+
+let answer = floorNum(arr, 5)
+console.log(answer);
+*/
+
+/*
+let arr = [3, 4, 13, 13, 13, 20, 40]
+
+function lastOccurence(arr, target){
+  let n = arr.length
+  let start = 0
+  let end = n - 1
+
+  let ans
+  let found = false
+
+  while(start <= end){
+    let mid = Math.floor((start + end) / 2)
+
+    if(arr[mid] === target){
+      ans = mid
+      found = true
+      start = mid + 1
+    }else if(arr[mid] < target){
+      start = mid + 1
+    }else{
+      end = mid - 1
+    }
+  }
+
+  if(found){
+    return ans
+  }else{
+    return -1
+  }
+}
+
+
+
+let arr1 = [2, 2, 3, 3, 3, 3, 4]
+
+function firstOccurrence(arr, target){
+  let n = arr.length
+  let start = 0
+  let end = n - 1
+
+  let ans
+
+  while(start <= end){
+    let mid = Math.floor((start + end) / 2)
+
+    if(arr[mid] === target){
+      ans = mid
+      end = mid - 1
+    }else if(arr[mid] < target){
+      start = mid + 1
+    }else{
+      end = mid - 1
+    }
+  }
+
+  return ans
+}
+
+let answer = (lastOccurence(arr, 13) - firstOccurrence(arr, 13)) + 1
+console.log(answer);
+*/
+
+/*
+let nums = [1, 3, 1, 7]
+let queries = [1, 3, 2, 4]
+
+let x = 1
+
+let k = 0
+
+let mp = new Map()
+
+let answer = []
+
+for(let i = 0; i < nums.length; i++){
+  if(nums[i] === x){
+    mp.set(k, i)
+    k++
+  }
+}
+
+for(let i = 0; i < queries.length; i++){
+  if(mp.has(queries[i])){
+    answer.push(mp.get(queries[i]))
+  }else{
+    answer.push(-1)
+  }
+}
+
+console.log(answer);
+*/
+
+
+let nums = [5, 1, 3]
+
+
+
+
+function rotatedArray(nums, target){
+
+  let n = nums.length
+  let low = 0
+  let high = n - 1
+  
+  while(low <= high){
+    let mid = Math.floor((low + high) / 2)
+  
+    if(nums[mid] === target){
+      return mid
+    }
+  
+    if(nums[low] <= nums[mid]){
+      if(nums[low] <= target && target < nums[mid] ){
+        high = mid - 1
+      }else{
+        low = mid + 1
+      }
+    }else{
+      if(nums[mid] <= target && target <= nums[high]){
+        low = mid + 1
+      }else{
+        high = mid - 1
+      }
+    }
+  }
+
+  return -1
+
+}
+
+let answer = rotatedArray(nums, 3)
+console.log(answer);
+
 
 
