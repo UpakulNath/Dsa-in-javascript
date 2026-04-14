@@ -1064,7 +1064,7 @@ for(let i = 0; i < queries.length; i++){
 console.log(answer);
 */
 
-
+/*
 let nums = [5, 1, 3]
 
 
@@ -1104,6 +1104,99 @@ function rotatedArray(nums, target){
 
 let answer = rotatedArray(nums, 3)
 console.log(answer);
+*/
 
+/*
+let arr = [4, 5, 6, 7, 0, 1, 2, 3]
+
+let n = arr.length
+let low = 0
+let high = n - 1
+
+let min = arr[0]
+
+while(low <= high){
+  let mid = Math.floor((low + high) / 2)
+
+  if(arr[low] < arr[mid]){
+    min = arr[low]
+    high = mid - 1
+  }else if(arr[])
+}
+*/
+
+/*
+let arr = [3, 4, 5, 1, 2]
+
+let n = arr.length
+let low = 0
+let high = n - 1
+let min = Math.MAX_INTEGER
+
+while(low <= high){
+  let mid = Math.floor((low + high) / 2)
+
+  while(arr[low] === arr[mid] && arr[mid] === arr[high]){
+    low++
+    high--
+  }
+
+
+  if(arr[mid] < arr[low] && arr[mid] < arr[high]){
+    min = arr[mid]
+    low++
+    high--
+  }else if(arr[low] < arr[mid] && arr[low] < arr[high]){
+    min = arr[low]
+    high = mid - 1
+  }else{
+    min = arr[high]
+    low = mid + 1
+  }
+
+ 
+}
+
+console.log(min);
+*/
+
+
+
+let arr = [3, 4, 5, 1, 2]
+
+let n = arr.length
+let low = 0
+let high = n - 1
+let min = Math.MAX_INTEGER
+let minELeIndex
+
+while(low <= high){
+  let mid = Math.floor((low + high) / 2)
+
+  while(arr[low] === arr[mid] && arr[mid] === arr[high]){
+    low++
+    high--
+  }
+
+
+  if(arr[mid] < arr[low] && arr[mid] < arr[high]){
+    min = arr[mid]
+    minELeIndex = mid
+    low++
+    high--
+  }else if(arr[low] < arr[mid] && arr[low] < arr[high]){
+    min = arr[low]
+    minELeIndex = low
+    high = mid - 1
+  }else{
+    min = arr[high]
+    minELeIndex = high
+    low = mid + 1
+  }
+
+ 
+}
+
+console.log(minELeIndex);
 
 
